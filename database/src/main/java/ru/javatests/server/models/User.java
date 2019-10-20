@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "name", unique = true, nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "user_test", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserTest> userTestList;
 
     public User() {
@@ -27,6 +27,10 @@ public class User {
     public void addUserTest(UserTest userTest) {
         userTest.setUser(this);
         userTestList.add(userTest);
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void removeUserTest(UserTest userTest) {

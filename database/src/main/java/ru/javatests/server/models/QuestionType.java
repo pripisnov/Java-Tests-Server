@@ -12,7 +12,7 @@ public class QuestionType {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "questionType", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Question> questionList;
 
     public QuestionType() {

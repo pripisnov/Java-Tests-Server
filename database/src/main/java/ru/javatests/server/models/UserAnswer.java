@@ -12,11 +12,11 @@ public class UserAnswer {
     private String answerText;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_test_id")
+    @JoinColumn(name = "user_test_id", nullable = false)
     private UserTest userTest;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "answer_id")
+    @JoinColumn(name = "answer_id", nullable = false)
     private QuestionAnswer questionAnswer;
 
     public UserAnswer() {

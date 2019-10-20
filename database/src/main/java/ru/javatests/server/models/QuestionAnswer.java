@@ -15,7 +15,7 @@ public class QuestionAnswer {
     @Column(name = "is_right", nullable = false, columnDefinition = "boolean default false")
     private boolean isRight;
 
-    @OneToMany(mappedBy = "user_answer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "questionAnswer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserAnswer> userAnswerList;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -16,7 +16,7 @@ public class UserTest {
     @Column(name = "question_count", nullable = false)
     private int questionCount;
 
-    @OneToMany(mappedBy = "user_answer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "userTest", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserAnswer> userAnswerList;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -33,7 +33,7 @@ public class UserTest {
     public UserTest(int userId, Date dateStart, int questionCount) {
         this.dateStart = dateStart;
         this.questionCount = questionCount;
-        this.userAnswerList = new ArrayList<UserAnswer>();
+        this.userAnswerList = new ArrayList<>();
     }
 
     public void addUserAnswer(UserAnswer userAnswer) {
@@ -46,21 +46,19 @@ public class UserTest {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(User user) {
         this.user = user;
     }
 
-
-
     public Date getDateStart() {
-        return dateStart;
+        return this.dateStart;
     }
 
     public void setDateStart(Date dateStart) {
@@ -68,7 +66,7 @@ public class UserTest {
     }
 
     public int getQuestionCount() {
-        return questionCount;
+        return this.questionCount;
     }
 
     public void setQuestionCount(int questionCount) {
@@ -76,7 +74,7 @@ public class UserTest {
     }
 
     public UserTestStatus getUserTestStatus() {
-        return userTestStatus;
+        return this.userTestStatus;
     }
 
     public void setUserTestStatus(UserTestStatus userTestStatus) {
@@ -84,7 +82,7 @@ public class UserTest {
     }
 
     public List<UserAnswer> getUserAnswerList() {
-        return userAnswerList;
+        return this.userAnswerList;
     }
 
     public void setUserAnswerList(List<UserAnswer> userAnswerList) {

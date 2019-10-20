@@ -10,10 +10,10 @@ public class UserTestStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @OneToMany(mappedBy = "user_test_status", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "userTestStatus", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserTest> userTestList;
 
     public UserTestStatus() {

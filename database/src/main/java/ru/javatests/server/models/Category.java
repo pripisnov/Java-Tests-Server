@@ -9,11 +9,12 @@ import java.util.List;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "name", unique = true, nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToMany(mappedBy = "category")
     private List<Question> questionList;
 
     public Category() {
@@ -21,7 +22,7 @@ public class Category {
 
     public Category(String name) {
         this.name = name;
-        this.questionList = new ArrayList<Question>();
+        this.questionList = new ArrayList<>();
     }
 
     public void addQuestion(Question question) {
@@ -30,15 +31,15 @@ public class Category {
     }
 
     public void removeQuestion(Question question) {
-        questionList.remove(question);
+        this.questionList.remove(question);
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -46,7 +47,7 @@ public class Category {
     }
 
     public List<Question> getQuestionList() {
-        return questionList;
+        return this.questionList;
     }
 
     public void setQuestionList(List<Question> questionList) {
